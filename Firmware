@@ -1,0 +1,24 @@
+#include <avr/io.h>
+#include <util/delay.h>
+// C++ code
+//
+
+void setup(){
+	Serial.begin(9600);
+}
+
+void loop(){
+  
+  DDRB = B00000001;
+  
+  int valor;
+  valor = analogRead(A0);
+  
+  if(valor > 0){
+    PORTB = B00000001;
+    _delay_ms(500);
+    PORTB = B00000000;
+    _delay_ms(500);
+    Serial.println(valor);
+  }
+}
